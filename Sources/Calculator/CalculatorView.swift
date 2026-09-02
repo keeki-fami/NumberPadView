@@ -7,7 +7,7 @@
 //
 import SwiftUI
 
-struct KeyBoard: View {
+private struct CalculatorView: View {
     @Binding var typedNumbers: String
     enum KeyType: Hashable {
         case number(String)
