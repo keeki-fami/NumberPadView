@@ -7,7 +7,7 @@
 //
 import SwiftUI
 
-private struct CalculatorView: View {
+public struct Calculator: View {
     @Binding var typedNumbers: String
     enum KeyType: Hashable {
         case number(String)
@@ -31,7 +31,7 @@ private struct CalculatorView: View {
         [.number("7"), .number("8"), .number("9"), .empty],
         [.empty, .number("0"), .empty, .empty]
     ]
-    var body: some View {
+    public var body: some View {
         VStack {
             ForEach(0..<grid.count, id: \.self) { row in
                 HStack (spacing: 8) {
