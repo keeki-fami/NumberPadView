@@ -25,6 +25,10 @@ public struct Calculator: View {
         }
     }
     
+    public init(_ text: Binding<String>) {
+        self._typedNumbers = text
+    }
+    
     let grid: [[KeyType]] = [
         [.number("1"), .number("2"), .number("3"), .backspace,],
         [.number("4"), .number("5"), .number("6"), .minus],
