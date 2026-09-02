@@ -5,5 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "CalculatorView",
+    platforms: [
+        .iOS(.v18)
+    ],
+    products: [
+        .library(name: "Calculator", targets: ["Calculator"])
+    ],
+    targets: [
+        .target(name: "Calculator")
+    ],
     swiftLanguageModes: [.v6]
+    
 )
