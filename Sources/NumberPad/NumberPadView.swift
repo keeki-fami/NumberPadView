@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct NumberPadView: View {
     @Binding var typedNumbers: String
+    let submitAction: () -> Void
     enum KeyType: Hashable {
         case number(String)
         case minus
@@ -25,8 +26,9 @@ public struct NumberPadView: View {
         }
     }
     
-    public init(_ text: Binding<String>) {
+    public init(_ text: Binding<String>, action: @escaping () -> Void) {
         self._typedNumbers = text
+        self.submitAction = action
     }
     
     let grid: [[KeyType]] = [
@@ -46,6 +48,7 @@ public struct NumberPadView: View {
             }
             Button(action: {
                 // TODO: 回答処理
+                submitAction()
             } ,label: {
                 ZStack {
                     Rectangle()

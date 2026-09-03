@@ -18,7 +18,7 @@
   ],
   "swiftCommands" : {
     "C.NumberPad-arm64-apple-macosx-debug.module" : {
-      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "executable" : "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/bin/swiftc",
       "fileList" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources",
       "importPath" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules",
       "inputs" : [
@@ -28,7 +28,7 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+          "name" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--6ABF1636A592F120.txt"
         },
         {
           "kind" : "file",
@@ -43,7 +43,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx10.13",
+        "arm64-apple-macosx12.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -70,10 +70,14 @@
         "-experimental-allow-module-with-compiler-errors",
         "-Xfrontend",
         "-empty-abi-descriptor",
+        "-I",
+        "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/lib/swift/macosx/testing",
         "-plugin-path",
-        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/lib/swift/host/plugins/testing",
         "-sdk",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
         "-F",
         "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
         "-I",
@@ -84,7 +88,7 @@
         "-Xcc",
         "-isysroot",
         "-Xcc",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
         "-Xcc",
         "-F",
         "-Xcc",
@@ -116,7 +120,7 @@
   },
   "swiftTargetScanArgs" : {
     "NumberPad" : [
-      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/bin/swiftc",
       "-module-name",
       "NumberPad",
       "-package-name",
@@ -126,7 +130,7 @@
       "-I",
       "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx10.13",
+      "arm64-apple-macosx12.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -153,10 +157,14 @@
       "-experimental-allow-module-with-compiler-errors",
       "-Xfrontend",
       "-empty-abi-descriptor",
+      "-I",
+      "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/lib/swift/macosx/testing",
       "-plugin-path",
-      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/lib/swift/host/plugins/testing",
       "-sdk",
-      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
       "-F",
       "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
       "-I",
@@ -167,7 +175,7 @@
       "-Xcc",
       "-isysroot",
       "-Xcc",
-      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
       "-Xcc",
       "-F",
       "-Xcc",
@@ -179,7 +187,7 @@
       "-package-name",
       "calculatorview",
       "-driver-use-frontend-path",
-      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+      "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/bin/swiftc"
     ]
   },
   "targetDependencyMap" : {
@@ -194,9 +202,11 @@
 
   },
   "traitConfiguration" : {
-    "default" : {
+    "default" : [
+      {
 
-    }
+      }
+    ]
   },
   "writeCommands" : {
     "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources" : {
@@ -213,7 +223,7 @@
       ],
       "outputFilePath" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources"
     },
-    "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+    "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--6ABF1636A592F120.txt" : {
       "alwaysOutOfDate" : true,
       "inputs" : [
         {
@@ -222,10 +232,10 @@
         },
         {
           "kind" : "file",
-          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+          "name" : "/Users/towasakurada/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2026-08-11-a.xctoolchain/usr/bin/swiftc"
         }
       ],
-      "outputFilePath" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+      "outputFilePath" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--6ABF1636A592F120.txt"
     }
   }
 }
