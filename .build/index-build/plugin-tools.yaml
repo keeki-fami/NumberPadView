@@ -1,0 +1,47 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "NumberPad-arm64-apple-macosx-debug.module": ["<NumberPad-arm64-apple-macosx-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<NumberPad-arm64-apple-macosx-debug.module>"]
+  "test": ["<NumberPad-arm64-apple-macosx-debug.module>"]
+default: "main"
+nodes:
+  "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/Calculator/CalculatorView.swift"]
+    outputs: ["/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources"]
+    description: "Write auxiliary file /Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources"
+
+  "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<NumberPad-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules/NumberPad.swiftmodule"]
+    outputs: ["<NumberPad-arm64-apple-macosx-debug.module>"]
+
+  "C.NumberPad-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/Calculator/CalculatorView.swift","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources"]
+    outputs: ["/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules/NumberPad.swiftmodule"]
+    description: "Compiling Swift Module 'NumberPad' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","NumberPad","-emit-dependencies","-emit-module","-emit-module-path","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules/NumberPad.swiftmodule","-output-file-map","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/output-file-map.json","-parse-as-library","-incremental","@/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources","-I","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.13","-incremental","-enable-batch-mode","-serialize-diagnostics","-Onone","-enable-testing","-j10","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/include/NumberPad-Swift.h","-swift-version","6","-Xfrontend","-experimental-lazy-typecheck","-Xfrontend","-experimental-skip-all-function-bodies","-Xfrontend","-experimental-allow-module-with-compiler-errors","-Xfrontend","-empty-abi-descriptor","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","calculatorview"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Package.swift","/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

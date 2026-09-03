@@ -7,7 +7,7 @@
 //
 import SwiftUI
 
-public struct Calculator: View {
+public struct NumberPadView: View {
     @Binding var typedNumbers: String
     enum KeyType: Hashable {
         case number(String)

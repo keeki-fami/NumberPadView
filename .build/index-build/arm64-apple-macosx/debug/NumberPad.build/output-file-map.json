@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/primary.swiftdeps"
+  },
+  "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/Calculator/CalculatorView.swift": {
+    "dependencies": "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/CalculatorView.d",
+    "object": "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/CalculatorView.swift.o",
+    "swiftmodule": "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/CalculatorView~partial.swiftmodule",
+    "swift-dependencies": "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/CalculatorView.swiftdeps",
+    "diagnostics": "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/CalculatorView.dia"
+  }
+}

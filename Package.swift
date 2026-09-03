@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "CalculatorView",
+    name: "NumberPadView",
     platforms: [
         .iOS(.v18)
     ],
     products: [
-        .library(name: "Calculator", targets: ["Calculator"])
+        .library(name: "NumberPad", targets: ["NumberPad"])
     ],
     targets: [
-        .target(name: "Calculator")
+        .target(name: "NumberPad")
     ],
     swiftLanguageModes: [.v6]
     
