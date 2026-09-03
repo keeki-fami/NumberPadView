@@ -24,7 +24,7 @@
       "inputs" : [
         {
           "kind" : "file",
-          "name" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/Calculator/CalculatorView.swift"
+          "name" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/NumberPad/NumberPadView.swift"
         },
         {
           "kind" : "file",
@@ -39,7 +39,7 @@
       "moduleName" : "NumberPad",
       "moduleOutputPath" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules/NumberPad.swiftmodule",
       "objects" : [
-        "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/CalculatorView.swift.o"
+        "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/NumberPadView.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -105,7 +105,7 @@
       ],
       "prepareForIndexing" : true,
       "sources" : [
-        "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/Calculator/CalculatorView.swift"
+        "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/NumberPad/NumberPadView.swift"
       ],
       "tempsPath" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build",
       "wholeModuleOptimization" : false
@@ -122,7 +122,7 @@
       "-package-name",
       "calculatorview",
       "-c",
-      "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/Calculator/CalculatorView.swift",
+      "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/NumberPad/NumberPadView.swift",
       "-I",
       "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -208,7 +208,7 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/Calculator/CalculatorView.swift"
+          "name" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/Sources/NumberPad/NumberPadView.swift"
         }
       ],
       "outputFilePath" : "/Users/towasakurada/Desktop/private_Xcode/CalculatorView/.build/index-build/arm64-apple-macosx/debug/NumberPad.build/sources"
