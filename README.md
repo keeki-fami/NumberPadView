@@ -1,4 +1,4 @@
-# CalculatorView
+# NumberPadView
 This is a swift package that provides a NumberPad UI and logic.
 <!--![numericpad](./photo/smartphone_picture.png)-->
 <img src="./photo/NumberPad.gif" width="30%">
