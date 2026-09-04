@@ -1,7 +1,7 @@
 # CalculatorView
 This is a swift package that provides a NumberPad UI and logic.
 <!--![numericpad](./photo/smartphone_picture.png)-->
-<img src="./photo/smartphone_picture.png" width="30%">
+<img src="./photo/NumberPad.gif" width="30%">
 
 # platform
 - iOS18+
@@ -10,10 +10,30 @@ If you use SPM (Swift Package Manager), then add this repository to your project
 ```Swift
 import NumberPad
 ```
-pass binding of String property wrapped by `@State`.
+Sample Code
 ```Swift
-@State var text: String = ""
-var body: some View {
-    NumberPadView($text)
+import SwiftUI
+import NumberPad
+
+struct ContentView: View {
+    @State private var text = ""
+    @State private var sum = 0
+    var body: some View {
+        VStack {
+            Spacer()
+            Group {
+                Text("tapped: \(text)")
+                Text("sum: \(sum)")
+            }
+            .font(.title)
+            .fontWeight(.bold)
+            Spacer()
+            NumberPadView($text) {
+                sum += Int(text) ?? 0
+                text = ""
+            }
+            .frame(maxWidth: .infinity, maxHeight: 350)
+        }
+    }
 }
 ```
