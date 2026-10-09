@@ -8,7 +8,10 @@
 import SwiftUI
 
 public struct NumberPadView: View {
+    var label: String
+    var isHapnic: Bool
     @Binding var typedNumbers: String
+    @State private var selection = false
     let submitAction: () -> Void
     enum KeyType: Hashable {
         case number(String)
@@ -26,9 +29,11 @@ public struct NumberPadView: View {
         }
     }
     
-    public init(_ text: Binding<String>, action: @escaping () -> Void) {
+    public init(_ label: String, text: Binding<String>, isHapnic: Bool = true, action: @escaping () -> Void) {
+        self.label = label
         self._typedNumbers = text
         self.submitAction = action
+        self.isHapnic = isHapnic
     }
     
     let grid: [[KeyType]] = [
@@ -48,21 +53,25 @@ public struct NumberPadView: View {
             }
             Button(action: {
                 // TODO: 回答処理
-                submitAction()
             } ,label: {
                 ZStack {
                     Rectangle()
                         .fill(.blue)
-                    Text("submit")
+                    Text(self.label)
                         .foregroundStyle(.white)
                 }
             })
-            .buttonStyle(NumberButtonStyle())
+            .buttonStyle(NumberButtonStyle(onTouchDown: {
+                submitAction()
+            }, onTouchUp: {
+                
+            }))
         }
         .padding()
         .background(Color(red: 236/255, green: 236/255, blue: 236/255))
     }
     
+    // submit以外のボタン
     @ViewBuilder
     func keyView(key: KeyType) -> some View {
         if key == .empty {
@@ -70,7 +79,11 @@ public struct NumberPadView: View {
                 .fill(Color(red: 217/255, green: 217/255, blue: 217/255))
         } else {
             Button(action: {
-                handleKeyPress(key)
+//                handleKeyPress(key)
+//                if isHapnic {
+//                    // TODO: 触覚フィードバックの実装
+//                    selection.toggle()
+//                }
             } ,label: {
                 ZStack {
                     Rectangle()
@@ -78,7 +91,17 @@ public struct NumberPadView: View {
                     Text(key.title)
                 }
             })
-            .buttonStyle(NumberButtonStyle())
+            .sensoryFeedback(.selection, trigger: selection)
+            .buttonStyle(NumberButtonStyle(onTouchDown: {
+                handleKeyPress(key)
+                if isHapnic {
+                    // TODO: 触覚フィードバックの実装
+                    selection.toggle()
+                }
+            }, onTouchUp: {
+                
+            })
+            )
         }
     }
     
@@ -105,6 +128,8 @@ public struct NumberPadView: View {
 }
 
 struct NumberButtonStyle: ButtonStyle {
+    let onTouchDown: () -> Void
+    let onTouchUp: () -> Void
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .background(Color(red: 217/255, green: 217/255, blue: 217/255))
@@ -113,5 +138,18 @@ struct NumberButtonStyle: ButtonStyle {
                 RoundedRectangle(cornerRadius: 5)
             )
             .shadow(color: .black.opacity( configuration.isPressed ? 0 : 0.5 ), radius: 1, x: 0, y: 2)
+            .onChange(of: configuration.isPressed) {
+                $1 ? onTouchDown() : onTouchUp()
+            }
+    }
+}
+
+#Preview {
+    @Previewable @State var text: String = ""
+    VStack {
+        Rectangle()
+        NumberPadView("submit", text: $text, action: {
+            print("text: \(text)")
+        })
     }
 }
