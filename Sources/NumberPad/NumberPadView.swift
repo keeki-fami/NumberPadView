@@ -12,6 +12,10 @@ public struct NumberPadView: View {
     var isHapnic: Bool
     @Binding var typedNumbers: String
     @State private var selection = false
+    @State private var timer: Timer?
+    @State private var counter = 0
+    @State private var deleteTapped = false
+    private let longTapAction = 5
     let submitAction: () -> Void
     enum KeyType: Hashable {
         case number(String)
@@ -23,7 +27,7 @@ public struct NumberPadView: View {
             switch self {
             case .number(let text): return text
             case .minus: return "-"
-            case .backspace: return "<"
+            case .backspace: return "delete.backward"
             case .empty: return ""
             }
         }
@@ -63,8 +67,6 @@ public struct NumberPadView: View {
             })
             .buttonStyle(NumberButtonStyle(onTouchDown: {
                 submitAction()
-            }, onTouchUp: {
-                
             }))
         }
         .padding()
@@ -77,13 +79,54 @@ public struct NumberPadView: View {
         if key == .empty {
             RoundedRectangle(cornerRadius: 5)
                 .fill(Color(red: 217/255, green: 217/255, blue: 217/255))
+        } else if key == .backspace {
+            ZStack {
+                Rectangle()
+                    .fill(Color(red: 217/255, green: 217/255, blue: 217/255))
+                    .background(Color(red: 217/255, green: 217/255, blue: 217/255))
+                    .clipShape(
+                        RoundedRectangle(cornerRadius: 5)
+                    )
+                    .shadow(color: .black.opacity( deleteTapped ? 0 : 0.5 ), radius: 1, x: 0, y: 2)
+                Image(systemName: key.title)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25)
+                    .foregroundColor(.black)
+            }
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { _ in
+                        deleteTapped = true
+                        if timer != nil {
+                            return
+                        }
+                        if !typedNumbers.isEmpty {
+                            typedNumbers.removeLast()
+                        }
+                        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+                            Task{ @MainActor in
+                                counter += 1
+                                if counter > longTapAction {
+                                    if !typedNumbers.isEmpty {
+                                        typedNumbers.removeLast()
+                                    }
+                                }
+                            }
+                        })
+                    }
+                    .onEnded {_ in
+                        withAnimation {
+                            deleteTapped = false
+                        }
+                        timer?.invalidate()
+                        timer = nil
+                        counter = 0
+                    }
+            )
+            .sensoryFeedback(.selection, trigger: typedNumbers)
         } else {
             Button(action: {
-//                handleKeyPress(key)
-//                if isHapnic {
-//                    // TODO: 触覚フィードバックの実装
-//                    selection.toggle()
-//                }
             } ,label: {
                 ZStack {
                     Rectangle()
@@ -91,17 +134,13 @@ public struct NumberPadView: View {
                     Text(key.title)
                 }
             })
-            .sensoryFeedback(.selection, trigger: selection)
             .buttonStyle(NumberButtonStyle(onTouchDown: {
                 handleKeyPress(key)
                 if isHapnic {
-                    // TODO: 触覚フィードバックの実装
                     selection.toggle()
                 }
-            }, onTouchUp: {
-                
-            })
-            )
+            }))
+            .sensoryFeedback(.selection, trigger: typedNumbers)
         }
     }
     
@@ -129,7 +168,7 @@ public struct NumberPadView: View {
 
 struct NumberButtonStyle: ButtonStyle {
     let onTouchDown: () -> Void
-    let onTouchUp: () -> Void
+//    let onTouchUp: () -> Void
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .background(Color(red: 217/255, green: 217/255, blue: 217/255))
@@ -139,7 +178,9 @@ struct NumberButtonStyle: ButtonStyle {
             )
             .shadow(color: .black.opacity( configuration.isPressed ? 0 : 0.5 ), radius: 1, x: 0, y: 2)
             .onChange(of: configuration.isPressed) {
-                $1 ? onTouchDown() : onTouchUp()
+                if $1 {
+                    onTouchDown()
+                }
             }
     }
 }
