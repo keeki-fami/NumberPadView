@@ -55,19 +55,31 @@ public struct NumberPadView: View {
                     }
                 }
             }
-            Button(action: {
-                // TODO: 回答処理
-            } ,label: {
+            if typedNumbers.isEmpty {
                 ZStack {
                     Rectangle()
-                        .fill(.blue)
+                        .fill(.gray)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 5)
+                        )
                     Text(self.label)
                         .foregroundStyle(.white)
                 }
-            })
-            .buttonStyle(NumberButtonStyle(onTouchDown: {
-                submitAction()
-            }))
+            } else {
+                Button(action: {
+                    // TODO: 回答処理
+                } ,label: {
+                    ZStack {
+                        Rectangle()
+                            .fill(.blue)
+                        Text(self.label)
+                            .foregroundStyle(.white)
+                    }
+                })
+                .buttonStyle(NumberButtonStyle(onTouchDown: {
+                    submitAction()
+                }))
+            }
         }
         .padding()
         .background(Color(red: 236/255, green: 236/255, blue: 236/255))
